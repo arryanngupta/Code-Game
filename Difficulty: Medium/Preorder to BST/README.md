@@ -1,0 +1,9 @@
+<h2><a href="https://www.geeksforgeeks.org/problems/preorder-to-postorder4423/1">Preorder to BST</a></h2><h3>Difficulty Level : Difficulty: Medium</h3><hr><div class="problems_problem_content__Xm_eO" style="--text-color: var(--problem-text-color);"><p><span style="font-size: 18px;">Given an array arr[] representing preorder traversal of a <a href="https://www.geeksforgeeks.org/dsa/binary-search-tree-data-structure/">BST</a>. You have to build the </span><strong style="font-size: 18px;">BST</strong><span style="font-size: 18px;">&nbsp;</span><span style="font-size: 18px;"> from the given preorder</span><span style="font-size: 18px;">.</span></p>
+<p><strong><span style="font-size: 18px;">Examples:</span></strong></p>
+<pre><strong><span style="font-size: 18px;">Input: </span></strong><span style="font-size: 18px;">arr[] = [40, 30, 35, 80, 100]
+<strong>Output: </strong>[35, 30, 100, 80, 40]<strong>
+Explanation:</strong> PreOrder: 40 30 35 80 100
+The corresponding BST is:<br><img src="https://media.geeksforgeeks.org/img-practice/prod/addEditProblem/926843/Web/Other/blobid0_1777091399.png" width="228" height="175"> <br>The output postOrder traversal is: 35 30 100 80 40</span></pre>
+<pre><strong><span style="font-size: 18px;">Input:</span></strong><span style="font-size: 18px;"> arr[] = [40, 30, 32, 35, 80, 90, 100, 120]
+<strong>Output: </strong>[35, 32, 30, 120, 100, 90, 80, 40]</span></pre>
+<p><span style="font-size: 18px;"><strong>Constraints:</strong><br>1 ≤ arr.size() ≤ 10<sup>3</sup><br>1 ≤ arr[i] ≤ 10<sup>4</sup></span></p></div><p><span style=font-size:18px><strong>Company Tags : </strong><br><code>Flipkart</code>&nbsp;<code>Amazon</code>&nbsp;<code>Linkedin</code>&nbsp;<br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Stack</code>&nbsp;<code>Binary Search Tree</code>&nbsp;<code>Tree</code>&nbsp;<code>Data Structures</code>&nbsp;
