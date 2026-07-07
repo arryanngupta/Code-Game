@@ -10,32 +10,30 @@ class Solution {
             adjList[u].push_back({v,wt});
             adjList[v].push_back({u,wt});
         }
-        vector<pair<int,int>> dist(V,{1e9,0});
-        priority_queue<pair<pair<int,int>,int>,
-        vector<pair<pair<int,int>,int>>,
-        greater<pair<pair<int,int>,int>> > pq; // {{distance,no},node}
-        pq.push({{0,0},0});
-        dist[0].first = 0;
-        int ans = 0;
+        
+        vector<int> dist(V,1e9),ways(V);
+        
+        priority_queue<pair<int,int>,
+        vector<pair<int,int>>,
+        greater<pair<int,int>> > pq;
+        pq.push({0,0});
+        dist[0] = 0;
+        ways[0] = 1;
         while(!pq.empty()){
-            int distance = pq.top().first.first;
-            int no = pq.top().first.second;
-            int node = pq.top().second;
+            int distance = pq.top().first,node = pq.top().second;
             pq.pop();
-            if (distance > dist[node].first) continue;
             for(auto it: adjList[node]){
                 int adjNode = it.first,wt = it.second;
-                if(distance+wt<dist[adjNode].first){
-                    dist[adjNode].first = distance+wt;
-                    dist[adjNode].second=1;
+                if(distance+wt<dist[adjNode]){
+                    dist[adjNode] = distance+wt;
+                    ways[adjNode] = ways[node];
                     pq.push({dist[adjNode],adjNode});
                 }
-                else if(distance+wt==dist[adjNode].first){
-                    dist[adjNode].second++;
-                    pq.push({dist[adjNode],adjNode});
+                else if(distance+wt==dist[adjNode]){
+                    ways[adjNode]+=ways[node];
                 }
             }
         }
-        return dist[V-1].second;
+        return ways[V-1];
     }
 };
