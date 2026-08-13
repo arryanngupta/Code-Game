@@ -1,0 +1,10 @@
+<h2><a href="https://www.geeksforgeeks.org/problems/division-without-using-multiplication-division-and-mod-operator/1">Division without using multiplication, division and mod operator</a></h2><h3>Difficulty Level : Difficulty: Medium</h3><hr><div class="problems_problem_content__Xm_eO" style="--text-color: var(--problem-text-color);" bis_skin_checked="1"><p data-start="65" data-end="252"><span style="font-size: 18.6667px;">Given two integers<strong> a </strong>and <strong>b</strong>, find the <strong>quotient </strong>obtained by dividing a by b <strong>without </strong>using multiplication (<strong>*</strong>), division (<strong>/</strong>), or modulus (<strong>%</strong>) operators.</span></p>
+<p data-start="65" data-end="252"><span style="font-size: 18.6667px;">The quotient should be truncated toward zero. </span><span style="font-size: 18.6667px;">Return the resulting quotient.</span></p>
+<p><span style="font-size: 14pt;"><strong>Examples:</strong></span></p>
+<pre><span style="font-size: 14pt;"><strong>Input: </strong>a = 10, b = 3
+<strong>Output:</strong> 3
+<strong>Explanation: </strong>10/3 gives quotient as 3 and remainder as 1.</span></pre>
+<pre><span style="font-size: 14pt;"><strong>Input: </strong>a = 43, b = -8<br></span><span style="font-size: 14pt;"><strong>Output:</strong> -5
+<strong>Explanation: </strong>43/(-8) gives quotient as -5 and remainder as 3.</span></pre>
+<div bis_skin_checked="1"><span style="font-size: 14pt;"><strong>Constraints:</strong></span></div>
+<div bis_skin_checked="1"><span style="font-size: 14pt;">-10<sup>9</sup>&nbsp;≤&nbsp;</span><span style="font-size: 14pt;">a</span><span style="font-size: 14pt;">, b </span><span style="font-size: 14pt;">≤ 10<sup>9</sup></span></div></div><p><span style=font-size:18px><strong>Company Tags : </strong><br><code>Microsoft</code>&nbsp;<br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Bit Magic</code>&nbsp;
