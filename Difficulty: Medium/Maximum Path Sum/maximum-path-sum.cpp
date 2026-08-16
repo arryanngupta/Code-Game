@@ -21,7 +21,7 @@ class Solution {
         int l = max(0,recFind(node->left));
         int r = max(0,recFind(node->right));
         maxi = max(maxi,l+r+node->data);
-        return max(0,node->data+max(l,r));
+        return max(l,r)+node->data;
     }
   
     int findMaxSum(Node *root) {
