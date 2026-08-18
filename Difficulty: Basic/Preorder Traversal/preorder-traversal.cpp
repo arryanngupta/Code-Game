@@ -14,20 +14,29 @@ class Node {
 
 class Solution {
   public:
-    
-    void recFind(Node* node,vector<int> &ans){
-        if(!node) return ;
-        ans.push_back(node->data);
-        recFind(node->left,ans);
-        recFind(node->right,ans);
-    }
-  
     vector<int> preOrder(Node* root) {
         // code here
-        // root,left,right
         vector<int> ans;
-        recFind(root,ans);
+        Node* curr = root;
+        while(curr){
+            if(curr->left==NULL){
+                ans.push_back(curr->data);
+                curr = curr->right;
+            }
+            else{
+                Node* node = curr->left;
+                while(node->right!=NULL && node->right!=curr) node = node->right;
+                if(node->right==NULL){
+                    node->right = curr;
+                    ans.push_back(curr->data);
+                    curr = curr->left;
+                }
+                else{
+                    node->right = NULL;
+                    curr = curr->right;
+                }
+            }
+        }
         return ans;
-        
     }
 };
