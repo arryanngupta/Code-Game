@@ -1,13 +1,15 @@
-/* class Node {
-public:
+/* Structure of a Tree Node
+class Node {
+  public:
     int data;
     Node *left, *right;
 
     Node(int val) {
         data = val;
-        left = right = NULL;
+        left = right = nullptr;
     }
-}; */
+};
+*/
 
 class Solution {
   public:
@@ -19,7 +21,7 @@ class Solution {
         root->right = recFind(idx,ub,pre,n);
         return root;
     }
-
+  
     Node* preToBST(vector<int>& pre) {
         // code here
         int n = pre.size();
