@@ -1,13 +1,11 @@
-/*
-Node is as follows
+/* Binary Tree Node Structure
 class Node {
     int data;
     Node *left;
     Node *right;
-
     Node(int val) {
         data = val;
-        left = right = NULL;
+        left = right = nullptr;
     }
 };
 */
@@ -15,59 +13,49 @@ class Node {
 class BSTIterator{
 public:
     stack<Node*> st;
+    int rev;
     BSTIterator(Node* root,int reverse){
-        pushLeft(root,reverse);
+        rev=reverse;
+        push(root);
     }
-    
-    void pushLeft(Node* node,int reverse){
+    void push(Node* node){
         while(node){
             st.push(node);
-            if(reverse){
-                node = node->right;
-            }
-            else node = node->left;
+            if(!rev) node = node->left;
+            else node = node->right;
         }
     }
     
-    int next(){
-        Node* node = st.top();
+    int getElement(){
+        Node* temp = st.top();
         st.pop();
-        pushLeft(node->right,0);
-        return node->data;
-    }
-    
-    int before(){
-        Node* node = st.top();
-        st.pop();
-        pushLeft(node->left,1);
-        return node->data;
-    }
-    
-    bool hasElements(){
-        return !st.empty();
+        if(!rev){
+            push(temp->right);
+        }
+        else{
+            push(temp->left);
+        }
+        return temp->data;
     }
     
 };
 
-
 class Solution {
   public:
     bool findTarget(Node *root, int target) {
-        // your code here.
-        BSTIterator l(root,0);
-        BSTIterator r(root,1);
-        int i = l.next();
-        int j = r.before();
+        // code here.
+        BSTIterator b1(root,0);
+        BSTIterator b2(root,1);
+        int i = b1.getElement();
+        int j = b2.getElement();
         while(i<j){
-            if(i+j>target){
-                j = r.before();
+            if((i+j)>target){
+                j = b2.getElement();
             }
-            else if(i+j<target){
-                i = l.next();
+            else if((i+j)<target){
+                i = b1.getElement();
             }
-            else{
-                return true;
-            }
+            else return true;
         }
         return false;
     }
