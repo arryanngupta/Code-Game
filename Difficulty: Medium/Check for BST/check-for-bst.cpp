@@ -1,4 +1,4 @@
-/*
+/* Structure of a Binary Search Tree node
 class Node {
 public:
     int data;
@@ -9,24 +9,19 @@ public:
         data = val;
         left = right = nullptr;
     }
-};
-*/
+}; */
 
 class Solution {
   public:
   
     bool recFind(Node* node,int mini,int maxi){
-        if(node==NULL) return true;
+        if(!node) return true;
         if(node->data<=mini || node->data>=maxi) return false;
-        int l = recFind(node->left,mini,min(maxi,node->data));
-        bool r = recFind(node->right,max(mini,node->data),maxi);
-        if(!l || !r) return false;
-        return true;
+        return recFind(node->left,mini,node->data) && recFind(node->right,node->data,maxi);
     }
-  
+    
     bool isBST(Node* root) {
         // code here
-        int mini=0,maxi=INT_MAX;
-        return recFind(root,mini,maxi);
+        return recFind(root,-1e9,1e9);
     }
 };
