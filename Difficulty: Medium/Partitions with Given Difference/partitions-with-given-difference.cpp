@@ -3,25 +3,30 @@ class Solution {
   
     vector<vector<int>> dp;
   
-    int recFind(int idx,int sum,vector<int>& arr,int n){
-        if(idx==n) return (sum==0);
-        if(dp[idx][sum]!=-1) return dp[idx][sum];
-        int take = 0,notTake = 0;
-        if(sum>=arr[idx]){
-            take = recFind(idx+1,sum-arr[idx],arr,n);
+    int recFind(int idx,int s1,int s,vector<int>& arr, int diff,int n){
+        if(idx==n){
+            // return (s-2*s1==diff);
+            return s1==diff;
         }
-        notTake = recFind(idx+1,sum,arr,n);
-        return dp[idx][sum]=(take+notTake);
+        if(dp[idx][s1]!=-1) return dp[idx][s1];
+        int take = recFind(idx+1,s1+arr[idx],s,arr,diff,n);
+        int notTake = recFind(idx+1,s1,s,arr,diff,n);
+        return dp[idx][s1]=(take+notTake);
     }
-  
+    
     int countPartitions(vector<int>& arr, int diff) {
         // Code here
         int n = arr.size();
-        
         int s = 0;
-        for(auto it: arr) s+=it;
+        for(auto it: arr) s+= it;
         dp.resize(n,vector<int> (s+1,-1));
-        if(s-diff<0 || (s-diff)%2!=0) return 0;
-        return recFind(0,(s-diff)/2,arr,n);
+        int target = (s+diff);
+        if(target%2!=0) return 0;
+        return recFind(0,0,s,arr,(s+diff)/2,n);
     }
 };
+
+
+// s1+s2 = s
+// s1-s2 = diff
+// s1 = (s+diff)/2
