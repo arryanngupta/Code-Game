@@ -22,7 +22,7 @@ class Solution {
         int idx = mpp[preorder[i2]];
         Node* newNode = new Node(preorder[i2]);
         newNode->left = recFind(i1,idx-1,i2+1,i2+(idx-i1),inorder,preorder,n,m);
-        newNode->right = recFind(idx+1,j1,i2+(idx-i1)+1,i2+(idx-i1)+j1-idx,inorder,preorder,n,m);
+        newNode->right = recFind(idx+1,j1,i2+(idx-i1)+1,j2,inorder,preorder,n,m);
         return newNode;
     }
   
