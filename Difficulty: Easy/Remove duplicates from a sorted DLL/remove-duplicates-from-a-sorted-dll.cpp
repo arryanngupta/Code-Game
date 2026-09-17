@@ -16,11 +16,9 @@ class Solution {
     Node* removeDuplicates(Node* headRef) {
         // code here
         Node* node = headRef;
-        Node* newHead = NULL;
         Node* last = NULL;
         while(node){
             if(!last){
-                newHead = node;
                 last = node;
                 node = node->next;
             }
@@ -39,6 +37,6 @@ class Solution {
                 }
             }
         }
-        return newHead;
+        return headRef;
     }
 };
