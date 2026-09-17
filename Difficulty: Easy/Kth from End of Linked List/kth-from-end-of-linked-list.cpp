@@ -20,12 +20,24 @@ class Solution {
             node = node->next;
         }
         if(n-k+1<=0) return -1;
-        int cnt = 0;
+        // Node* fast = head;
+        // Node* slow = head;
+        // int cnt = 0;
+        // while(cnt<k-1){
+        //     fast = fast->next;
+        //     cnt++;
+        // }
+        // while(fast->next){
+        //     fast = fast->next;
+        //     slow = slow->next;
+        // }
         node = head;
-        while(cnt<(n-k)){
+        int cnt = 1;
+        while(cnt<(n-k+1)){
             cnt++;
             node = node->next;
         }
+        // return slow->data;
         return node->data;
     }
 };
