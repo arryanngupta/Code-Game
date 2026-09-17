@@ -18,16 +18,14 @@ class Solution {
     Node *reverse(Node *head) {
         // code here
         Node* node = head;
-        Node* nxtNode = NULL;
+        Node* p = NULL;
         while(node){
-            Node* temp = node->next;
-            node->next = nxtNode;
-            if(nxtNode) nxtNode->prev = node;
-            nxtNode = node;
-            node = temp;
+            Node* nxtNode = node->next;
+            node->next = p;
+            node->prev = nxtNode;
+            p = node;
+            node = nxtNode;
         }
-        head = nxtNode;
-        head->prev = NULL;
-        return head;
+        return p;
     }
 };
